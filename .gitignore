@@ -1,0 +1,5 @@
+vendor/
+.idea/
+.phplint.cache
+clover.xml
+cover-html/

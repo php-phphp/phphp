@@ -1,0 +1,44 @@
+{
+    "chmod": "0755",
+    "compactors": [
+        "Herrera\\Box\\Compactor\\Json",
+        "Herrera\\Box\\Compactor\\Php"
+    ],
+    "directories": ["src"],
+    "finder": [
+        {
+            "name": "*.php",
+            "exclude": [
+                "phpunit",
+                "mikey179",
+                "Tests",
+                "phpunit-test-case",
+                "Tester",
+                "test",
+                "tests",
+                "phpspec",
+                "2bj",
+                "codedungeon",
+                "doctrine",
+                "friendsofphp",
+                "hassankhan",
+                "overtrue",
+                "paragonie",
+                "php-cs-fixer",
+                "phpdocumentor",
+                "phpspec",
+                "phpunit",
+                "psr",
+                "sebastian",
+                "theseer",
+                "webmozart"
+            ],
+            "in": "vendor"
+        }
+    ],
+    "git-commit": "git-commit",
+    "git-version": "git-version",
+    "main": "bin/psp",
+    "output": "psp.phar",
+    "stub": true
+}
