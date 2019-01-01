@@ -13,21 +13,20 @@
  * with this source code in the file LICENSE.
  */
 
-namespace PHPHP;
+namespace PHPHP\VM;
 
-use PHPHP\VM\OpArray;
-
-interface PHPHPInterface
+class CompileException extends \LogicException
 {
-    public function registerExtension(VM\Extension $extension);
+    protected $rawLine = 0;
 
-    public function registerExtensionByName($name);
+    public function __construct($message, $line = -1)
+    {
+        parent::__construct($message);
+        $this->rawLine = (int) $line;
+    }
 
-    public function setCWD($dir);
-
-    public function execute($code);
-
-    public function executeFile($file);
-
-    public function executeOpLines(OpArray $opCodes);
+    public function getRawLine()
+    {
+        return $this->rawLine;
+    }
 }

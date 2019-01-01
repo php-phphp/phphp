@@ -13,21 +13,21 @@
  * with this source code in the file LICENSE.
  */
 
-namespace PHPHP;
+namespace PHPHP\VM\OpLines;
 
-use PHPHP\VM\OpArray;
+use PHPHP\VM\Zval;
 
-interface PHPHPInterface
+class RecvInit extends Recv
 {
-    public function registerExtension(VM\Extension $extension);
+    public function execute(\PHPHP\VM\ExecuteData $data)
+    {
+        $args = &$data->arguments;
 
-    public function registerExtensionByName($name);
+        $n = $this->op1->toLong();
+        if (!isset($args[$n])) {
+            $args[$n] = Zval::ptrFactory($this->op2->getZval());
+        }
 
-    public function setCWD($dir);
-
-    public function execute($code);
-
-    public function executeFile($file);
-
-    public function executeOpLines(OpArray $opCodes);
+        parent::execute($data);
+    }
 }

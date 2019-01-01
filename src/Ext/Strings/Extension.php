@@ -13,21 +13,18 @@
  * with this source code in the file LICENSE.
  */
 
-namespace PHPHP;
+namespace PHPHP\Ext\Strings;
 
-use PHPHP\VM\OpArray;
-
-interface PHPHPInterface
+class Extension extends \PHPHP\VM\Extension\Base
 {
-    public function registerExtension(VM\Extension $extension);
+    protected $isInternal = true;
 
-    public function registerExtensionByName($name);
+    protected $name = 'Strings';
 
-    public function setCWD($dir);
+    protected $namespace = __NAMESPACE__;
 
-    public function execute($code);
-
-    public function executeFile($file);
-
-    public function executeOpLines(OpArray $opCodes);
+    protected function getFunctions()
+    {
+        return require __DIR__ . '/functions.php';
+    }
 }

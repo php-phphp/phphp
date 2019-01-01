@@ -13,21 +13,19 @@
  * with this source code in the file LICENSE.
  */
 
-namespace PHPHP;
+namespace PHPHP\VM\OpLines;
 
-use PHPHP\VM\OpArray;
-
-interface PHPHPInterface
+class ObjectPropertyFetch extends \PHPHP\VM\OpLine
 {
-    public function registerExtension(VM\Extension $extension);
+    public function execute(\PHPHP\VM\ExecuteData $data)
+    {
+        $key = $this->op2->toString();
+        if (!$this->op1->isObject()) {
+            $this->op1->setValue($this->op1->toObject($data));
+        }
+        $prop = $this->op1->getValue()->getProperty($key);
+        $this->result->assignZval($prop);
 
-    public function registerExtensionByName($name);
-
-    public function setCWD($dir);
-
-    public function execute($code);
-
-    public function executeFile($file);
-
-    public function executeOpLines(OpArray $opCodes);
+        $data->nextOp();
+    }
 }

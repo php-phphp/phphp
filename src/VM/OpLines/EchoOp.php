@@ -13,21 +13,14 @@
  * with this source code in the file LICENSE.
  */
 
-namespace PHPHP;
+namespace PHPHP\VM\OpLines;
 
-use PHPHP\VM\OpArray;
-
-interface PHPHPInterface
+class EchoOp extends \PHPHP\VM\OpLine
 {
-    public function registerExtension(VM\Extension $extension);
+    public function execute(\PHPHP\VM\ExecuteData $data)
+    {
+        $data->executor->getOutput()->write($this->op1->makePrintable()->toString());
 
-    public function registerExtensionByName($name);
-
-    public function setCWD($dir);
-
-    public function execute($code);
-
-    public function executeFile($file);
-
-    public function executeOpLines(OpArray $opCodes);
+        $data->nextOp();
+    }
 }

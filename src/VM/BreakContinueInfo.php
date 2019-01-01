@@ -13,21 +13,18 @@
  * with this source code in the file LICENSE.
  */
 
-namespace PHPHP;
+namespace PHPHP\VM;
 
-use PHPHP\VM\OpArray;
-
-interface PHPHPInterface
+class BreakContinueInfo
 {
-    public function registerExtension(VM\Extension $extension);
+    public $continueOp;
 
-    public function registerExtensionByName($name);
+    public $breakOp;
 
-    public function setCWD($dir);
+    public $parentPos;
 
-    public function execute($code);
-
-    public function executeFile($file);
-
-    public function executeOpLines(OpArray $opCodes);
+    public function __construct($parentPos)
+    {
+        $this->parentPos = $parentPos;
+    }
 }

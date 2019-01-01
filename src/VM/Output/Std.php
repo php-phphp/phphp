@@ -13,21 +13,12 @@
  * with this source code in the file LICENSE.
  */
 
-namespace PHPHP;
+namespace PHPHP\VM\Output;
 
-use PHPHP\VM\OpArray;
-
-interface PHPHPInterface
+class Std extends \PHPHP\VM\Output
 {
-    public function registerExtension(VM\Extension $extension);
-
-    public function registerExtensionByName($name);
-
-    public function setCWD($dir);
-
-    public function execute($code);
-
-    public function executeFile($file);
-
-    public function executeOpLines(OpArray $opCodes);
+    public function write($data)
+    {
+        echo $data;
+    }
 }

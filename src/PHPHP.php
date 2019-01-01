@@ -19,33 +19,77 @@ class PHPHP implements PHPHPInterface
 {
     protected $executor;
 
-    public function registerExtension(Engine\Extension $extension)
+    public function __construct()
     {
-        // TODO: Implement registerExtension() method.
+        $functions = new VM\FunctionStore;
+        $constants = new VM\ConstantStore;
+        $classes = new VM\ClassStore;
+
+        $this->executor = new VM\Executor($functions, $constants, $classes);
+        $this->executor->setOutput(new VM\Output\Std($this->executor));
+
+        $this->registerExtension(new VM\CoreExtension);
+        $this->registerExtension(new Ext\Strings\Extension);
+    }
+
+    public function registerExtension(VM\Extension $extension)
+    {
+        $this->executor->registerExtension($extension);
     }
 
     public function registerExtensionByName($name)
     {
-        // TODO: Implement registerExtensionByName() method.
+        $class = __NAMESPACE__ . '\Ext\\' . $name . '\Extension';
+        if (class_exists($class)) {
+            $this->executor->registerExtension(new $class);
+        } else {
+            throw new \RuntimeException('Could not find extension: ' . $name);
+        }
     }
 
     public function setCWD($dir)
     {
-        // TODO: Implement setCWD() method.
+        $this->executor->executorGlobals->cwd = $dir;
     }
 
     public function execute($code)
     {
-        // TODO: Implement execute() method.
+        try {
+            $opCodes = $this->executor->compile($code, 'Command line code');
+        } catch (VM\ErrorOccurredException $e) {
+            die();
+        }
+        return $this->executeOpLines($opCodes);
     }
 
     public function executeFile($file)
     {
-        // TODO: Implement executeFile() method.
+        if (empty($file)) {
+            throw new \RuntimeException('Filename must not be empty');
+        }
+        $this->setCWD(dirname($file));
+        try {
+            $opCodes = $this->executor->compileFile($file);
+        } catch (VM\ErrorOccurredException $e) {
+            die();
+        }
+        return $this->executeOpLines($opCodes);
     }
 
-    public function executeOpLines(Engine\OpArray $opCodes)
+    public function executeOpLines(VM\OpArray $opCodes)
     {
-        // TODO: Implement executeOpLines() method.
+        try {
+            $retval = $this->executor->execute($opCodes);
+            if ($retval) {
+                return $retval->getValue();
+            }
+            $this->executor->shutdown();
+            $this->executor->getOutput()->finish();
+        } catch (VM\ErrorOccurredException $e) {
+            // Ignore, since the error should be in the OB
+        }
+        $this->executor->getOutput()->finish(true);
+        // Force outputting of any remaining buffers
+        return null;
     }
 }

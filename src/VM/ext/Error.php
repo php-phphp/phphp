@@ -13,21 +13,16 @@
  * with this source code in the file LICENSE.
  */
 
-namespace PHPHP;
+namespace PHPHP\VM;
 
-use PHPHP\VM\OpArray;
-
-interface PHPHPInterface
-{
-    public function registerExtension(VM\Extension $extension);
-
-    public function registerExtensionByName($name);
-
-    public function setCWD($dir);
-
-    public function execute($code);
-
-    public function executeFile($file);
-
-    public function executeOpLines(OpArray $opCodes);
-}
+return [
+    'error_reporting' => new FunctionData\Internal(
+        function (Executor $executor, array $args, Zval $return) {
+            $return->setValue(0);
+        },
+        false,
+        [
+            new ParamData('level', false, '', true),
+        ]
+    ),
+];

@@ -13,21 +13,17 @@
  * with this source code in the file LICENSE.
  */
 
-namespace PHPHP;
+namespace PHPHP\VM;
 
-use PHPHP\VM\OpArray;
-
-interface PHPHPInterface
+interface FunctionDataInterface
 {
-    public function registerExtension(VM\Extension $extension);
+    public function execute(Executor $executor, array $args, \PHPHP\VM\Zval\Ptr $return, \PHPHP\VM\Objects\ClassInstance $ci = null, \PHPHP\VM\Objects\ClassEntry $ce = null);
 
-    public function registerExtensionByName($name);
+    public function isByRef();
 
-    public function setCWD($dir);
+    public function isArgByRef($n);
 
-    public function execute($code);
+    public function getParam($n);
 
-    public function executeFile($file);
-
-    public function executeOpLines(OpArray $opCodes);
+    public function getParams();
 }

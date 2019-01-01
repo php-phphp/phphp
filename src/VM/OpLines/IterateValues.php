@@ -13,21 +13,16 @@
  * with this source code in the file LICENSE.
  */
 
-namespace PHPHP;
+namespace PHPHP\VM\OpLines;
 
-use PHPHP\VM\OpArray;
-
-interface PHPHPInterface
+class IterateValues extends \PHPHP\VM\OpLine
 {
-    public function registerExtension(VM\Extension $extension);
-
-    public function registerExtensionByName($name);
-
-    public function setCWD($dir);
-
-    public function execute($code);
-
-    public function executeFile($file);
-
-    public function executeOpLines(OpArray $opCodes);
+    public function execute(\PHPHP\VM\ExecuteData $data)
+    {
+        if ($this->op2) {
+            $this->op2->setValue($this->op1->getIterator()->key());
+        }
+        $this->result->setValue($this->op1->getIterator()->current());
+        $data->nextOp();
+    }
 }

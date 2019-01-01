@@ -13,21 +13,26 @@
  * with this source code in the file LICENSE.
  */
 
-namespace PHPHP;
+namespace PHPHP\VM;
 
-use PHPHP\VM\OpArray;
-
-interface PHPHPInterface
+class ParamData
 {
-    public function registerExtension(VM\Extension $extension);
+    public $name;
 
-    public function registerExtensionByName($name);
+    public $isOptional = false;
 
-    public function setCWD($dir);
+    public $isRef = false;
 
-    public function execute($code);
+    public $type = null;
 
-    public function executeFile($file);
+    public $lineno = -1;
 
-    public function executeOpLines(OpArray $opCodes);
+    public function __construct($name, $isRef = false, $type = null, $isOptional = false, $lineno = -1)
+    {
+        $this->name = $name;
+        $this->isRef = $isRef;
+        $this->type = $type;
+        $this->isOptional = $isOptional;
+        $this->lineno = $lineno;
+    }
 }
