@@ -15,6 +15,8 @@
 
 namespace PHPHP\VM;
 
+use PhpParser\Error;
+
 class Executor
 {
     const DO_RETURN = 1;
@@ -149,7 +151,7 @@ class Executor
         } catch (CompileException $e) {
             $line = $e->getRawLine();
             $this->errorHandler->handle($this, E_COMPILE_ERROR, $e->getMessage(), $file, $line);
-            throw new ErrorOccurredException($message, E_COMPILE_ERROR);
+            throw new ErrorOccurredException($e->getMessage(), E_COMPILE_ERROR);
         }
     }
 
@@ -157,7 +159,7 @@ class Executor
     {
         try {
             return $this->parser->parse($code);
-        } catch (\PHPParser_Error $e) {
+        } catch (Error $e) {
             $message = 'syntax error, ' . str_replace('Unexpected', 'unexpected', $e->getMessage());
             $line = $e->getRawLine();
             $this->errorHandler->handle($this, E_PARSE, $message, $file, $line);

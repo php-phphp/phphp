@@ -26,78 +26,78 @@ class Compiler
         'Arg' => ['ArrayOp', 'value'],
 
         // scalars
-        'Name'           => ['ScalarOp', 'parts', '\\'],
+        'Name' => ['ScalarOp', 'parts', '\\'],
         'Scalar_DNumber' => ['ScalarOp'],
         'Scalar_LNumber' => ['ScalarOp'],
-        'Scalar_String'  => ['ScalarOp'],
+        'Scalar_String' => ['ScalarOp'],
 
         // unary operators
-        'Expr_Cast_Array'  => ['UnaryOp', 'PHPHP\VM\OpLines\CastArray', 'expr'],
-        'Expr_Cast_Bool'   => ['UnaryOp', 'PHPHP\VM\OpLines\CastBool', 'expr'],
+        'Expr_Cast_Array' => ['UnaryOp', 'PHPHP\VM\OpLines\CastArray', 'expr'],
+        'Expr_Cast_Bool' => ['UnaryOp', 'PHPHP\VM\OpLines\CastBool', 'expr'],
         'Expr_Cast_Double' => ['UnaryOp', 'PHPHP\VM\OpLines\CastDouble', 'expr'],
-        'Expr_Cast_Int'    => ['UnaryOp', 'PHPHP\VM\OpLines\CastInt', 'expr'],
+        'Expr_Cast_Int' => ['UnaryOp', 'PHPHP\VM\OpLines\CastInt', 'expr'],
         'Expr_Cast_String' => ['UnaryOp', 'PHPHP\VM\OpLines\CastString', 'expr'],
         'Expr_Cast_Object' => ['UnaryOp', 'PHPHP\VM\OpLines\CastObject', 'expr'],
-        'Expr_Eval'        => ['UnaryOp', 'PHPHP\VM\OpLines\EvalOp', 'expr'],
-        'Expr_Exit'        => ['UnaryOp', 'PHPHP\VM\OpLines\ExitOp', 'expr'],
-        'Expr_BooleanNot'  => ['UnaryOp', 'PHPHP\VM\OpLines\BooleanNot'],
-        'Expr_BitwiseNot'  => ['UnaryOp', 'PHPHP\VM\OpLines\BitwiseNot'],
-        'Expr_Empty'       => ['UnaryOp', 'PHPHP\VM\OpLines\EmptyOp', 'expr'],
-        'Expr_Isset'       => ['UnaryOp', 'PHPHP\VM\OpLines\IssetOp', 'vars'],
-        'Stmt_Unset'       => ['UnaryOp', 'PHPHP\VM\OpLines\UnsetOp', 'vars'],
-        'Expr_PostDec'     => ['UnaryOp', 'PHPHP\VM\OpLines\PostDec', 'var'],
-        'Expr_PostInc'     => ['UnaryOp', 'PHPHP\VM\OpLines\PostInc', 'var'],
-        'Expr_PreDec'      => ['UnaryOp', 'PHPHP\VM\OpLines\PreDec', 'var'],
-        'Expr_PreInc'      => ['UnaryOp', 'PHPHP\VM\OpLines\PreInc', 'var'],
-        'Expr_UnaryPlus'   => ['UnaryOp', 'PHPHP\VM\OpLines\UnaryPlus', 'expr'],
-        'Expr_UnaryMinus'  => ['UnaryOp', 'PHPHP\VM\OpLines\UnaryMinus', 'expr'],
-        'Expr_ConstFetch'  => ['UnaryOp', 'PHPHP\VM\OpLines\FetchConstant', 'name'],
-        'Expr_Print'       => ['UnaryOp', 'PHPHP\VM\OpLines\PrintOp', 'expr'],
-        'Stmt_Return'      => ['UnaryOp', 'PHPHP\VM\OpLines\ReturnOp'],
+        'Expr_Eval' => ['UnaryOp', 'PHPHP\VM\OpLines\EvalOp', 'expr'],
+        'Expr_Exit' => ['UnaryOp', 'PHPHP\VM\OpLines\ExitOp', 'expr'],
+        'Expr_BooleanNot' => ['UnaryOp', 'PHPHP\VM\OpLines\BooleanNot'],
+        'Expr_BitwiseNot' => ['UnaryOp', 'PHPHP\VM\OpLines\BitwiseNot'],
+        'Expr_Empty' => ['UnaryOp', 'PHPHP\VM\OpLines\EmptyOp', 'expr'],
+        'Expr_Isset' => ['UnaryOp', 'PHPHP\VM\OpLines\IssetOp', 'vars'],
+        'Stmt_Unset' => ['UnaryOp', 'PHPHP\VM\OpLines\UnsetOp', 'vars'],
+        'Expr_PostDec' => ['UnaryOp', 'PHPHP\VM\OpLines\PostDec', 'var'],
+        'Expr_PostInc' => ['UnaryOp', 'PHPHP\VM\OpLines\PostInc', 'var'],
+        'Expr_PreDec' => ['UnaryOp', 'PHPHP\VM\OpLines\PreDec', 'var'],
+        'Expr_PreInc' => ['UnaryOp', 'PHPHP\VM\OpLines\PreInc', 'var'],
+        'Expr_UnaryPlus' => ['UnaryOp', 'PHPHP\VM\OpLines\UnaryPlus', 'expr'],
+        'Expr_UnaryMinus' => ['UnaryOp', 'PHPHP\VM\OpLines\UnaryMinus', 'expr'],
+        'Expr_ConstFetch' => ['UnaryOp', 'PHPHP\VM\OpLines\FetchConstant', 'name'],
+        'Expr_Print' => ['UnaryOp', 'PHPHP\VM\OpLines\PrintOp', 'expr'],
+        'Stmt_Return' => ['UnaryOp', 'PHPHP\VM\OpLines\ReturnOp'],
 
         // assignment operators
-        'Expr_AssignRef'        => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignRef',        'var', 'expr'],
-        'Expr_AssignPlus'       => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignAdd',        'var', 'expr'],
-        'Expr_AssignMinus'      => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignSub',        'var', 'expr'],
-        'Expr_AssignMul'        => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignMul',        'var', 'expr'],
-        'Expr_AssignDiv'        => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignDiv',        'var', 'expr'],
-        'Expr_AssignMod'        => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignMod',        'var', 'expr'],
-        'Expr_AssignConcat'     => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignConcat',     'var', 'expr'],
+        'Expr_AssignRef' => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignRef', 'var', 'expr'],
+        'Expr_AssignPlus' => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignAdd', 'var', 'expr'],
+        'Expr_AssignMinus' => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignSub', 'var', 'expr'],
+        'Expr_AssignMul' => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignMul', 'var', 'expr'],
+        'Expr_AssignDiv' => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignDiv', 'var', 'expr'],
+        'Expr_AssignMod' => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignMod', 'var', 'expr'],
+        'Expr_AssignConcat' => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignConcat', 'var', 'expr'],
         'Expr_AssignBitwiseAnd' => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignBitwiseAnd', 'var', 'expr'],
-        'Expr_AssignBitwiseOr'  => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignBitwiseOr',  'var', 'expr'],
+        'Expr_AssignBitwiseOr' => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignBitwiseOr', 'var', 'expr'],
         'Expr_AssignBitwiseXor' => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignBitwiseXor', 'var', 'expr'],
-        'Expr_AssignShiftLeft'  => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignShiftLeft',  'var', 'expr'],
+        'Expr_AssignShiftLeft' => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignShiftLeft', 'var', 'expr'],
         'Expr_AssignShiftRight' => ['BinaryAssignOp', 'PHPHP\VM\OpLines\AssignShiftRight', 'var', 'expr'],
 
         // binary operators
-        'Expr_PropertyFetch'    => ['BinaryOp', 'PHPHP\VM\OpLines\ObjectPropertyFetch', 'var', 'name'],
-        'Expr_ClassConstFetch'  => ['BinaryOp', 'PHPHP\VM\OpLines\ClassConstantFetch', 'class', 'name'],
-        'Expr_BooleanAnd'       => ['BinaryOp', 'PHPHP\VM\OpLines\BooleanAnd'],
-        'Expr_BooleanOr'        => ['BinaryOp', 'PHPHP\VM\OpLines\BooleanOr'],
-        'Expr_LogicalAnd'       => ['BinaryOp', 'PHPHP\VM\OpLines\BooleanAnd'],
-        'Expr_LogicalOr'        => ['BinaryOp', 'PHPHP\VM\OpLines\BooleanOr'],
-        'Expr_LogicalXor'        => ['BinaryOp', 'PHPHP\VM\OpLines\BooleanXor'],
-        'Expr_Smaller'          => ['BinaryOp', 'PHPHP\VM\OpLines\Smaller'],
-        'Expr_SmallerOrEqual'   => ['BinaryOp', 'PHPHP\VM\OpLines\SmallerOrEqual'],
-        'Expr_Greater'          => ['BinaryOp', 'PHPHP\VM\OpLines\Smaller', 'right', 'left'],
-        'Expr_GreaterOrEqual'   => ['BinaryOp', 'PHPHP\VM\OpLines\SmallerOrEqual', 'right', 'left'],
-        'Expr_Equal'            => ['BinaryOp', 'PHPHP\VM\OpLines\Equal'],
-        'Expr_NotEqual'         => ['BinaryOp', 'PHPHP\VM\OpLines\NotEqual'],
-        'Expr_Identical'        => ['BinaryOp', 'PHPHP\VM\OpLines\Identical'],
-        'Expr_NotIdentical'     => ['BinaryOp', 'PHPHP\VM\OpLines\NotIdentical'],
-        'Expr_Plus'             => ['BinaryOp', 'PHPHP\VM\OpLines\Add'],
-        'Expr_Minus'            => ['BinaryOp', 'PHPHP\VM\OpLines\Sub'],
-        'Expr_Mul'              => ['BinaryOp', 'PHPHP\VM\OpLines\Mul'],
-        'Expr_Div'              => ['BinaryOp', 'PHPHP\VM\OpLines\Div'],
-        'Expr_Mod'              => ['BinaryOp', 'PHPHP\VM\OpLines\Mod'],
-        'Expr_Concat'           => ['BinaryOp', 'PHPHP\VM\OpLines\Concat'],
-        'Expr_BitwiseAnd'       => ['BinaryOp', 'PHPHP\VM\OpLines\BitwiseAnd'],
-        'Expr_BitwiseOr'        => ['BinaryOp', 'PHPHP\VM\OpLines\BitwiseOr'],
-        'Expr_BitwiseXor'       => ['BinaryOp', 'PHPHP\VM\OpLines\BitwiseXor'],
-        'Expr_ShiftLeft'        => ['BinaryOp', 'PHPHP\VM\OpLines\ShiftLeft'],
-        'Expr_ShiftRight'       => ['BinaryOp', 'PHPHP\VM\OpLines\ShiftRight'],
+        'Expr_PropertyFetch' => ['BinaryOp', 'PHPHP\VM\OpLines\ObjectPropertyFetch', 'var', 'name'],
+        'Expr_ClassConstFetch' => ['BinaryOp', 'PHPHP\VM\OpLines\ClassConstantFetch', 'class', 'name'],
+        'Expr_BooleanAnd' => ['BinaryOp', 'PHPHP\VM\OpLines\BooleanAnd'],
+        'Expr_BooleanOr' => ['BinaryOp', 'PHPHP\VM\OpLines\BooleanOr'],
+        'Expr_LogicalAnd' => ['BinaryOp', 'PHPHP\VM\OpLines\BooleanAnd'],
+        'Expr_LogicalOr' => ['BinaryOp', 'PHPHP\VM\OpLines\BooleanOr'],
+        'Expr_LogicalXor' => ['BinaryOp', 'PHPHP\VM\OpLines\BooleanXor'],
+        'Expr_Smaller' => ['BinaryOp', 'PHPHP\VM\OpLines\Smaller'],
+        'Expr_SmallerOrEqual' => ['BinaryOp', 'PHPHP\VM\OpLines\SmallerOrEqual'],
+        'Expr_Greater' => ['BinaryOp', 'PHPHP\VM\OpLines\Smaller', 'right', 'left'],
+        'Expr_GreaterOrEqual' => ['BinaryOp', 'PHPHP\VM\OpLines\SmallerOrEqual', 'right', 'left'],
+        'Expr_Equal' => ['BinaryOp', 'PHPHP\VM\OpLines\Equal'],
+        'Expr_NotEqual' => ['BinaryOp', 'PHPHP\VM\OpLines\NotEqual'],
+        'Expr_Identical' => ['BinaryOp', 'PHPHP\VM\OpLines\Identical'],
+        'Expr_NotIdentical' => ['BinaryOp', 'PHPHP\VM\OpLines\NotIdentical'],
+        'Expr_Plus' => ['BinaryOp', 'PHPHP\VM\OpLines\Add'],
+        'Expr_Minus' => ['BinaryOp', 'PHPHP\VM\OpLines\Sub'],
+        'Expr_Mul' => ['BinaryOp', 'PHPHP\VM\OpLines\Mul'],
+        'Expr_Div' => ['BinaryOp', 'PHPHP\VM\OpLines\Div'],
+        'Expr_Mod' => ['BinaryOp', 'PHPHP\VM\OpLines\Mod'],
+        'Expr_Concat' => ['BinaryOp', 'PHPHP\VM\OpLines\Concat'],
+        'Expr_BitwiseAnd' => ['BinaryOp', 'PHPHP\VM\OpLines\BitwiseAnd'],
+        'Expr_BitwiseOr' => ['BinaryOp', 'PHPHP\VM\OpLines\BitwiseOr'],
+        'Expr_BitwiseXor' => ['BinaryOp', 'PHPHP\VM\OpLines\BitwiseXor'],
+        'Expr_ShiftLeft' => ['BinaryOp', 'PHPHP\VM\OpLines\ShiftLeft'],
+        'Expr_ShiftRight' => ['BinaryOp', 'PHPHP\VM\OpLines\ShiftRight'],
 
-        'Expr_Include'          => ['BinaryOp', 'PHPHP\VM\OpLines\IncludeOp', 'type', 'expr'],
+        'Expr_Include' => ['BinaryOp', 'PHPHP\VM\OpLines\IncludeOp', 'type', 'expr'],
     ];
 
     /** @var OpArray */
@@ -152,17 +152,18 @@ class Compiler
         $opArray[] = new OpLines\ReturnOp(end($ast)->getLine());
 
         unset($this->opArray);
+
         return $opArray;
     }
 
     protected function compileTopLevelFunctions(array $ast)
     {
         foreach ($ast as $node) {
-            if ($node instanceof \PHPParser_Node_Stmt_Function) {
+            if ($node instanceof Node\Stmt\Function_) {
                 $funcData = $this->compileFunction($node);
                 $this->functionStore->register($node->namespacedName, $funcData);
                 $node->alreadyCompiled = true;
-            } elseif ($node instanceof \PHPParser_Node_Stmt_Namespace) {
+            } elseif ($node instanceof Node\Stmt\Namespace_) {
                 $this->compileTopLevelFunctions($node->stmts);
             }
         }
@@ -180,17 +181,17 @@ class Compiler
         $nodeType = $node->getType();
         if (isset($this->operators[$nodeType])) {
             call_user_func_array(
-                [$this, 'compile' . $this->operators[$nodeType][0]],
+                [$this, 'compile'.$this->operators[$nodeType][0]],
                 array_merge([$node, $returnContext], array_slice($this->operators[$nodeType], 1))
             );
 
             return;
         }
 
-        $methodName = 'compile_' . $nodeType;
+        $methodName = 'compile_'.$nodeType;
         if (!method_exists($this, $methodName)) {
             var_dump($node);
-            throw new CompileException($nodeType . ' not supported yet', $node->line);
+            throw new CompileException($nodeType.' not supported yet', $node->line);
         }
 
         call_user_func([$this, $methodName], $node, $returnContext);
@@ -297,13 +298,14 @@ class Compiler
         foreach ($node->exprs as $expr) {
             $exprPtr = Zval::ptrFactory();
             $this->compileNode($expr, $exprPtr);
-            $this->opArray[] = new OpLines\EchoOp($node->getLine(), $exprPtr, null, $returnContext ?: Zval::ptrFactory());
+            $this->opArray[] = new OpLines\EchoOp($node->getLine(), $exprPtr, null,
+                $returnContext ?: Zval::ptrFactory());
         }
     }
 
     public function compile_Expr_Assign($node, $returnContext = null)
     {
-        if ($node->var instanceof \PHPParser_Node_Expr_ArrayDimFetch) {
+        if ($node->var instanceof Node\Expr\ArrayDimFetch) {
             $this->compileBinaryAssignOp($node, $returnContext, 'PHPHP\VM\OpLines\AssignDim', 'var', 'expr');
         } else {
             $this->compileBinaryAssignOp($node, $returnContext, 'PHPHP\VM\OpLines\Assign', 'var', 'expr');
@@ -356,7 +358,8 @@ class Compiler
     protected function compile_Expr_Closure($node, $returnContext = null)
     {
         $funcData = $this->compileFunction($node);
-        $this->opArray[] = new OpLines\ClosureDef($node->getLine(), Zval::factory($node->namespacedName), $funcData, $returnContext);
+        $this->opArray[] = new OpLines\ClosureDef($node->getLine(), Zval::factory($node->namespacedName), $funcData,
+            $returnContext);
     }
 
     protected function compile_Expr_ErrorSuppress($node, $returnContext = null)
@@ -385,8 +388,8 @@ class Compiler
             $this->opArray[] = new OpLines\Send($node->getLine(), $arg, Zval::factory($key));
         }
 
-        $this->opArray[] = new OpLines\FunctionCall($node->getLine(), null, null, $returnContext ?: Zval::ptrFactory());
-        ;
+        $this->opArray[] = new OpLines\FunctionCall($node->getLine(), null, null,
+            $returnContext ?: Zval::ptrFactory());;
     }
 
     protected function compile_Expr_MethodCall($node, $returnContext = null)
@@ -407,8 +410,8 @@ class Compiler
             $this->opArray[] = new OpLines\Send($node->getLine(), $arg, Zval::factory($key));
         }
 
-        $this->opArray[] = new OpLines\FunctionCall($node->getLine(), null, null, $returnContext ?: Zval::ptrFactory());
-        ;
+        $this->opArray[] = new OpLines\FunctionCall($node->getLine(), null, null,
+            $returnContext ?: Zval::ptrFactory());;
     }
 
     protected function compile_Expr_StaticCall($node, $returnContext = null)
@@ -429,8 +432,8 @@ class Compiler
             $this->opArray[] = new OpLines\Send($node->getLine(), $arg, Zval::factory($key));
         }
 
-        $this->opArray[] = new OpLines\FunctionCall($node->getLine(), null, null, $returnContext ?: Zval::ptrFactory());
-        ;
+        $this->opArray[] = new OpLines\FunctionCall($node->getLine(), null, null,
+            $returnContext ?: Zval::ptrFactory());;
     }
 
     protected function compile_Expr_List($node, $returnContext = null)
@@ -553,7 +556,7 @@ class Compiler
             return 1;
         }
 
-        if (!$node->num instanceof \PHPParser_Node_Scalar_LNumber || $node->num->value < 1) {
+        if (!$node->num instanceof Node\Scalar\LNumber || $node->num->value < 1) {
             throw new CompileException("'$type' operator accepts only positive numbers", $node->getLine());
         }
 
@@ -632,7 +635,7 @@ class Compiler
         $this->opArray->endLoop($continueJumpPos);
     }
 
-    protected function compile_Stmt_Function(\PHPParser_Node_Stmt_Function $node)
+    protected function compile_Stmt_Function(Node\Stmt\Function_ $node)
     {
         if ($node->alreadyCompiled) {
             return;
@@ -645,7 +648,7 @@ class Compiler
     protected function compile_Stmt_Global($node)
     {
         foreach ($node->vars as $var) {
-            $varName = (string) $var->name;
+            $varName = (string)$var->name;
             $this->opArray[] = new OpLines\FetchGlobalVariable($node->getLine(), Zval::ptrFactory($varName));
         }
     }
@@ -829,6 +832,7 @@ class Compiler
         if ($node->isStatic()) {
             $acc |= Scope::ACC_STATIC;
         }
+
         return $acc;
     }
 
@@ -862,7 +866,8 @@ class Compiler
             $returnContext = Zval::ptrFactory();
         }
 
-        $this->opArray[] = $newOp = new OpLines\NewOp($node->getLine(), Zval::ptrFactory($node->class->toString()), null, $returnContext);
+        $this->opArray[] = $newOp = new OpLines\NewOp($node->getLine(), Zval::ptrFactory($node->class->toString()),
+            null, $returnContext);
 
         foreach ($args as $key => $arg) {
             $this->opArray[] = new OpLines\Send($node->getLine(), $arg, Zval::factory($key));
@@ -882,22 +887,24 @@ class Compiler
 
         foreach ($node->params as $i => $param) {
             $type = null;
-            if ($param->type && $param->type instanceof \PHPParser_Node) {
+            if ($param->type && $param->type instanceof Node) {
                 $tmpZval = Zval::ptrFactory();
                 $this->compileChild($param, 'type', $tmpZval);
                 $type = $tmpZval->toString();
             } elseif (is_string($param->type)) {
                 $type = $param->type;
             }
-            $params[] = new ParamData($param->name, $param->byRef, $type, (bool) $param->default, $node->getLine());
+            $params[] = new ParamData($param->name, $param->byRef, $type, (bool)$param->default, $node->getLine());
 
             if ($param->default) {
                 $default = Zval::ptrFactory();
                 $this->compileChild($param, 'default', $default);
                 if ($param->type == 'array' && !($default->isArray() || $default->isNull())) {
-                    throw new CompileException('Default value for parameters with array type hint can only be an array or NULL', $node->getLine());
+                    throw new CompileException('Default value for parameters with array type hint can only be an array or NULL',
+                        $node->getLine());
                 } elseif ($param->type != 'array' && $param->type && !$default->isNull()) {
-                    throw new CompileException('Default value for parameters with a class type hint can only be NULL', $node->getLine());
+                    throw new CompileException('Default value for parameters with a class type hint can only be NULL',
+                        $node->getLine());
                 }
                 $this->opArray[] = new OpLines\RecvInit($node->getLine(), Zval::factory($i), $default);
             } else {
@@ -909,12 +916,13 @@ class Compiler
 
         $this->opArray[] = new OpLines\ReturnOp($node->getLine());
 
-        $funcData = new FunctionData\User($this->opArray, (bool) $node->byRef, $params);
+        $funcData = new FunctionData\User($this->opArray, (bool)$node->byRef, $params);
         $this->opArray = $prevOpArray;
+
         return $funcData;
     }
 
-    protected function makeZvalFromNodeStrict(\PHPParser_Node $node)
+    protected function makeZvalFromNodeStrict(Node $node)
     {
         $zval = $this->makeZvalFromNode($node);
 
@@ -925,14 +933,14 @@ class Compiler
         return $zval;
     }
 
-    protected function makeZvalFromNode(\PHPParser_Node $node)
+    protected function makeZvalFromNode(Node $node)
     {
-        if ($node instanceof \PHPParser_Node_Scalar_LNumber
-            || $node instanceof \PHPParser_Node_Scalar_DNumber
-            || $node instanceof \PHPParser_Node_Scalar_String
+        if ($node instanceof Node\Scalar\LNumber
+            || $node instanceof Node\Scalar\DNumber
+            || $node instanceof Node\Scalar\String_
         ) {
             return Zval::factory($node->value);
-        } elseif ($node instanceof \PHPParser_Node_Expr_Array) {
+        } elseif ($node instanceof Node\Expr\Array_) {
             $array = [];
             foreach ($node->items as $item) {
                 if ($item->byRef) {
@@ -941,11 +949,13 @@ class Compiler
 
                 $array[$this->makeZvalFromNode($item->key)] = $this->makeZvalFromNode($item->value);
             }
+
             return $array;
-        } elseif ($node instanceof \PHPParser_Node_Scalar_FileConst /* ... */) {
+        } elseif ($node instanceof Node\Scalar\MagicConst\File) {
             /* TODO */
             return null;
         }
+
         return null;
     }
 }

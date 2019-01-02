@@ -17,7 +17,7 @@ namespace PHPHP\VM;
 
 function var_dump_internal(Executor $executor, Zval $arg, $indent = '')
 {
-    if ($arg->getValue() instanceof FunctionData) {
+    if ($arg->getValue() instanceof FunctionDataInterface) {
         return '';
     }
     $output = $indent;
